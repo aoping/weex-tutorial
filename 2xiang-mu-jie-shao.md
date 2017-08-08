@@ -84,12 +84,11 @@ webpack.test.conf.js                    ------------------------webpack测试配
 - 点击debugger或者inspect进行测试(参考https://weex.apache.org/cn/guide/tools/toolkit.html)
 ![](/assets/006weex-debug4.jpg)
 
-####C.igola调试
+####C.igola调试 (推荐)
 - 步骤与playground一致
 - 参考 https://weex.apache.org/cn/references/advanced/integrate-devtool-to-android.html
        https://weex.apache.org/cn/references/advanced/integrate-devtool-to-ios.html
         
-
 
 ###二、[真机或模拟器调试](https://www.npmjs.com/package/weexpack)
 
@@ -193,9 +192,6 @@ switch (query) {
 
 ###组件编码规范
 -按https://blog.ygxdxx.com/2017/03/09/Vuejs-Component-Style-Guide/ 执行
-
-
-## 20170619更新
 
 ### 全局配置
 - 在src/constants里配置
