@@ -1,4 +1,4 @@
-- 酒店设计稿 //192.168.0.200/share/diandian_design/app/Hotel
+
 
 - weex学习资料汇总 
     https://github.com/JoggerPlus/awesome-weex

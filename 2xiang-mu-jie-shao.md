@@ -39,6 +39,11 @@ webpack.dev.js                          ------------------------webpack启动服
 webpack.test.conf.js                    ------------------------webpack测试配置
 ```
 
+## 资料
+- 酒店设计稿 //192.168.0.200/share/diandian_design/app/Hotel
+- 酒店设计稿(改) //192.168.0.200/share/FANG _design/酒店改
+
+
 ##关于架构
 ###单页or多页
 - 采用单页架构，因为涉及到状态管理及路由。在多页架构下，无法使用vuex进行应用状态管理（需要用到storage实现共享），另外多页面路由
