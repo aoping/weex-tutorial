@@ -156,7 +156,4 @@ data() {
 ### 静态资源管理
 - 需要统一使用getSource方法(因为上线时要更改资源路径,否则到时候要大面积改动)
 
-### android 资源下载
-- 谷歌被墙,翻墙也经常下不了
-- 把下载资源地址改为 http://mirrors.neusoft.edu.cn/android/repository/repository-12.xml
 

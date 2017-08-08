@@ -15,3 +15,7 @@
 - 20px问题
 - 全局样式没有起作用
 - 字体文件很大,不建议使用
+
+### android 资源下载
+- 谷歌被墙,翻墙也经常下不了
+- 把下载资源地址改为 http://mirrors.neusoft.edu.cn/android/repository/repository-12.xml
