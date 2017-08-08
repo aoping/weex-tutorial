@@ -44,7 +44,7 @@ webpack.test.conf.js                    ------------------------webpack测试配
 - 采用单页架构，因为涉及到状态管理及路由。在多页架构下，无法使用vuex进行应用状态管理（需要用到storage实现共享），另外多页面路由
 需要app扩展
 
-###状态管理
+###状态管理(多页面不适用)
 - 采用vuex进行应用状态管理
 
 ###路由
@@ -116,6 +116,7 @@ switch (query) {
 
 ### 中英文配置
 - 在src/mixins/index.js里配置,目前有两处需要改动 中文ZH 英文EN
+
 ```
 Vue.use(VueI18n)
 var i18n = new VueI18n({
