@@ -49,6 +49,53 @@ padding margin要分开left top等写
 答：手机和电脑要在同一局域网内，https://github.com/alibaba/weex/issues/3002
 
 
+
+
+
+
+`ios, android 端` 以下简称原生端或native端
+
+###样式问题
+weex 的样式支持是 css 的一个小子集，有很多属性不能支持。请细读 [weex 通用样式](https://weex.apache.org/cn/references/common-style.html)
+
+完全按照官网上的手册编写样式，可能还会遇到以下问题：
+1. 样式在 web 端完好，在 native 端错乱 .  
+```
+检查：
+a. weex 里元素默认是， display: flex, position: relative , 做相应检查
+b. weex 的内建标签，对样式有特殊要求，做相应检查
+```
+
+2. ios 端跟 android 端样式不一致  // 这个也是可能出现的，开发时尽量做好测试
+
+3. 图文混排， 请查阅 [weex richtext](https://github.com/alibaba/weex/issues/835), [weex richtext2](https://github.com/alibaba/weex/issues/834)
+
+
+###native 端调试
+1. 一般来说在 android studio 或 xcode 下使用模拟器调试，可以在 log 里看到由 weex 抛出的错误，这部分错误信息能解决部分问题。
+
+2. 另外需要 native 端的同事集成 weex 的调试工具， [weex devtools](https://weex.apache.org/cn/references/advanced/integrate-devtool-to-android.html)
+
+3. android studio 用安卓模拟器跑的时候，有可能会遇到
+`device supports x86,but APK only supports armeabi`
+
+将 build.gradle(app) 里的这段代码注释掉即可
+![](/assets/161518_66a2c5ea_617787.png)
+
+
+###weex组件
+
+参考 [hacksnew的例子](https://github.com/Hanks10100/vue-snippets)
+
+
+
+
+
+
+
+
+
+
 ### ios20px问题 (状态栏20px)
 - ios 750*1334的状态栏是40px 按此比例进行换算
 - Android的状态栏不能显示内容, iOS的状态栏可以显示内容
