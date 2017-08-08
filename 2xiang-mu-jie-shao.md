@@ -48,20 +48,22 @@ webpack.test.conf.js                    ------------------------webpack测试配
 ##执行
 - 安装依赖 ``` npm install```
 - 生成 ``` npm run build```
-- 启动服务器 ``` npm run serve```
-- 浏览器打开 http://localhost:8081 进入,可以用playground扫描二维码查看在native的表现
-![](/assets/001aserve.jpg)
-
-- 浏览器打开 http://localhost:8081/web 进入首页，其他页面可查看路由
-![](/assets/001首页.jpg)
-
+- 启动服务器 
+    * ``` npm run serve2```
+        - 浏览器打开 http://localhost:8081 进入,可以用playground扫描二维码查看在native的表现
+            ![](/assets/001aserve.jpg)
+    
+        - 浏览器打开 http://localhost:8081/web 进入首页，其他页面可查看路由
+            ![](/assets/001首页.jpg)
+    * ``` npm run serve``` (支持热刷新)
+    * ``` ./start``` (启动服务, 监听文件变化重新build, 启动调试)
 
 ##调试 ```注意在web上显示的效果极有可能在真机上有所不同，所以开发时也要在真机上看效果```
 ###一、网页调试
 ####A.网页调试web
 - 在chrome里按照以往经验调试
 
-####B.[网页调试native或web](https://weex.apache.org/cn/guide/tools/toolkit.html)
+####B.playground调试 [网页调试native或web](https://weex.apache.org/cn/guide/tools/toolkit.html)
 - 执行``` weex debug```
 
   这里单纯启动一个调试服务器，并同时唤起Chrome浏览器打开调试主页。这个调试主页上会有一个二维码
@@ -82,7 +84,15 @@ webpack.test.conf.js                    ------------------------webpack测试配
 - 点击debugger或者inspect进行测试(参考https://weex.apache.org/cn/guide/tools/toolkit.html)
 ![](/assets/006weex-debug4.jpg)
 
+####C.igola调试
+- 步骤与playground一致
+- 参考 https://weex.apache.org/cn/references/advanced/integrate-devtool-to-android.html
+       https://weex.apache.org/cn/references/advanced/integrate-devtool-to-ios.html
+        
+
+
 ###二、[真机或模拟器调试](https://www.npmjs.com/package/weexpack)
+
 - 全局安装 weex-pack 命令 ``` npm install -g weexpack```
 - 创建weexpack project ```weexpack create [appName]``` 此时会生成[appName]文件夹
 - 安装weex应用模版 
@@ -117,6 +127,8 @@ WeexBundle: 指定的weex bundle文件（支持文件名和url的形式）
     weexpack build ios
     ```
 ![](/assets/009weexpack-run3.jpg)
+
+
 
 ##关于架构
 ###单页or多页
