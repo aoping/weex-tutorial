@@ -162,7 +162,7 @@ const hotel = require('views/HotelIndex')    //加载模块
 
 ```
 
-### 数据刷新
+### 数据刷新(参见/src/views/HotelIndex.js)
 - weex支持viewappear生命周期
 - ios首页不能触发(其他深层页面可以), 需要ios发送一个fireEvent通知
 - igola android目前是通过pop时发送globalEvent通知
