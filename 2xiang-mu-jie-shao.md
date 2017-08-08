@@ -162,22 +162,6 @@ const hotel = require('views/HotelIndex')    //加载模块
 
 ```
 
-###测试
-- 单元测试采用krama+mocha+chai
-- 测试用例应该写在test目录下，用例以``` .spec.js```结尾
-
-###语法检查
-- 是用eslint进行语法风格检查
-
-###插件
-- 插件应该放在``` src/plugins```目录下
-
-```
-现有插件:
-- i18n
-- 
-```
-
 ###组件编码规范
 -按https://blog.ygxdxx.com/2017/03/09/Vuejs-Component-Style-Guide/ 执行
 
@@ -225,5 +209,11 @@ data() {
  
 ```
 
+###测试
+- 单元测试采用krama+mocha+chai
+- 测试用例应该写在test目录下，用例以``` .spec.js```结尾
+
+###语法检查
+- 是用eslint进行语法风格检查
 
 
