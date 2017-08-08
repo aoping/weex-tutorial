@@ -56,9 +56,15 @@ weex.config.env.appName.toLowerCase() == 'igola'
   - 使用unicode
   - 字体名要小写
   - 首页最好不要用iconfont,会有一个渲染失败的问题
+- 一屏显示
+  - 根据Android屏幕高度(不包括虚拟键和状态栏),减少广告位的高度,使所有内容都在屏幕可见区域,计算公式如下
+    ```
+    this.height = 750/weex.config.env.deviceWidth*weex.config.env.deviceHeight-624-40 // 624是下面部分高度 40 是ios状态栏高度
+    ```
+  
+  
 
-
-### 事件问题
+## 事件问题
 1. image load事件在Android上必须设置width height才会触发\
 2. slider 在Android iOS上没有index属性, 所以不能设置想要显示第几张图片, 需要采用稍微绕一点的方式实现, 可参考HotelDetailPics PicsPreviewer的实现
 3. weex 中Android的v-model双向绑定 输入第一个字符时无响应
