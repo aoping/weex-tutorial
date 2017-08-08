@@ -177,10 +177,6 @@ const hotel = require('views/HotelIndex')    //加载模块
 - i18n
 - 
 ```
-### 静态资源
-- 静态资源地址（http://192.168.0.82:8181/svn/p1.static/HYBRIDAPP）
-- 图标，背景图片等文件都应该放在这个地方
-
 
 ###组件编码规范
 -按https://blog.ygxdxx.com/2017/03/09/Vuejs-Component-Style-Guide/ 执行
@@ -192,9 +188,6 @@ const hotel = require('views/HotelIndex')    //加载模块
 - imgurl.js配置了资源信息
 使用到多次的参数需要在此处配置
 
-### 说明
-- 样式需要按照在页面上从上到下的顺序写,通用的样式写在顶部,方便其他人查看
-- export default里的属性按照字母顺序排列,方便他人查看
 
 ### 中英文配置
 - 在src/mixins/index.js里配置,目前有两处需要改动 中文ZH 英文EN
@@ -232,12 +225,5 @@ data() {
  
 ```
 
-### 状态管理
-- 使用storage进行状态管理,vuex在多页面情形下已不能使用
-- 如何初始化缓存
-
-
-### 静态资源管理
-- 需要统一使用getSource方法(因为上线时要更改资源路径,否则到时候要大面积改动)
 
 
