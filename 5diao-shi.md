@@ -27,7 +27,7 @@
 - 参考 https://weex.apache.org/cn/references/advanced/integrate-devtool-to-android.html
 https://weex.apache.org/cn/references/advanced/integrate-devtool-to-ios.html
 
-###二、[真机或模拟器调试](https://www.npmjs.com/package/weexpack)(可以不使用)
+###二、[真机或模拟器调试](https://www.npmjs.com/package/weexpack)(可以不使用, 需要有native知识)
 
 - 全局安装 weex-pack 命令 ``` npm install -g weexpack```
 - 创建weexpack project ```weexpack create [appName]``` 此时会生成[appName]文件夹
