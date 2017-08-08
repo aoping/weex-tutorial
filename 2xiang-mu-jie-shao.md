@@ -143,6 +143,7 @@ function popHomePage() {
 ```
 
 #### 路由定义(路由定义参见/src/router/)
+
 ```javascript
 page.js(供navigator用)
 
@@ -153,10 +154,11 @@ hotel: {
 }
 
 ```
+
 ```javascript
 map.js(供vue-router用)
-
-
+const hotel = require('views/HotelIndex')    //加载模块
+{ path: '/hotel', component: hotel }    //定义路由
 ```
 
 ###测试
