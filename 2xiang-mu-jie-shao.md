@@ -1,6 +1,7 @@
 ## 资料
 - 酒店设计稿 //192.168.0.200/share/diandian_design/app/Hotel
 - 酒店设计稿(改) //192.168.0.200/share/FANG _design/酒店改
+- hybrid-native对接文档     https://git.oschina.net/igolatech/iGola_docs/tree/master/hotel-hybrid-web
 - 静态资源与接口 (见/src/constants/imgurl.js)
 
 ```javascript
