@@ -27,6 +27,8 @@ weex.config.env.appName.toLowerCase() == 'igola'
 ```
 
 ## 样式注意点
+- 不能使用css选择器
+- 元素要设置高度,否则app无法显示高度
 - 宽度 高度 margin 用百分比% 在app端都会失效
 - ios状态栏40px(750px)
   - 根据设备加上40px(参见/src/components/hotel-home-top.vue)
@@ -61,7 +63,11 @@ weex.config.env.appName.toLowerCase() == 'igola'
     ```
     this.height = 750/weex.config.env.deviceWidth*weex.config.env.deviceHeight-624-40 // 624是下面部分高度 40 是ios状态栏高度
     ```
-  
+- 使用v-if控制元素显示与隐藏的bug。Android下v-if控制元素消失可能不会不会消失（可能的原因 使用fix定位，可以参考的解决方案 使用timeout延时处理控制v-if的表达式）;Android与IOS使用v-if显示元素，如果要显示的元素DOM结构太复杂嵌套太多可能会引起严重的性能问题，解决方案严格控制插入dom的大小
+- image标签一但加载完成，再改变它的src也不能使其改变
+- 图文混排， 请查阅 [weex richtext](https://github.com/alibaba/weex/issues/835), [weex richtext2](https://github.com/alibaba/weex/issues/834)    
+
+
   
 
 ## 事件问题
@@ -70,7 +76,11 @@ weex.config.env.appName.toLowerCase() == 'igola'
 3. weex 中Android的v-model双向绑定 输入第一个字符时无响应
 
     用v-bind 和@change代替, 此外还要使input失去焦点, 还要再延时才会更新到数据
-
+4. image load事件写法<image @load='load'></imag>
+5. Android下dom多层结构，点击上面的dom，事件会传到下层。解决方案：上层注册事件click = 'return false'
+6. weexdom scrollToElement方法有时在web调试时不会生效，但是放在真机调试可以正常运作
+7. android http 请求不能有空格, 可以使用encodeURI
+8. android ios请求都不允许有中文, 需要URL编码
 
 
 ## 其他问题
@@ -109,6 +119,11 @@ Gradle sync failed: Cause: org.gradle.api.internal.tasks.DefaultTaskInputs$TaskI
 
 参考链接 http://blog.csdn.net/figosoar/article/details/41357421
 
+- **android studio 用安卓模拟器跑的时候，有可能会遇到`device supports x86,but APK only supports armeabi`**
+  
+  将 build.gradle(app) 里的这段代码注释掉即可
+  ![](/assets/161518_66a2c5ea_617787.png)
+  
 
 ## weex android问题
 -  **图片显示不了** 
@@ -119,64 +134,14 @@ import com.squareup.picasso.Picasso;
 ```
 ![](/assets/124734_a91b2758_1345928.png)
 
-
 ## weex playground问题
 - playground扫描显示空白
 答：手机和电脑要在同一局域网内，https://github.com/alibaba/weex/issues/3002
 
 
-
-
-
-
-`ios, android 端` 以下简称原生端或native端
-
-###样式问题
-weex 的样式支持是 css 的一个小子集，有很多属性不能支持。请细读 [weex 通用样式](https://weex.apache.org/cn/references/common-style.html)
-
-完全按照官网上的手册编写样式，可能还会遇到以下问题：
-1. 样式在 web 端完好，在 native 端错乱 .  
-```
-检查：
-a. weex 里元素默认是， display: flex, position: relative , 做相应检查
-b. weex 的内建标签，对样式有特殊要求，做相应检查
-```
-
-2. ios 端跟 android 端样式不一致  // 这个也是可能出现的，开发时尽量做好测试
-
-3. 图文混排， 请查阅 [weex richtext](https://github.com/alibaba/weex/issues/835), [weex richtext2](https://github.com/alibaba/weex/issues/834)
-
-
-###native 端调试
-1. 一般来说在 android studio 或 xcode 下使用模拟器调试，可以在 log 里看到由 weex 抛出的错误，这部分错误信息能解决部分问题。
-
-2. 另外需要 native 端的同事集成 weex 的调试工具， [weex devtools](https://weex.apache.org/cn/references/advanced/integrate-devtool-to-android.html)
-
-3. android studio 用安卓模拟器跑的时候，有可能会遇到
-`device supports x86,but APK only supports armeabi`
-
-将 build.gradle(app) 里的这段代码注释掉即可
-![](/assets/161518_66a2c5ea_617787.png)
-
-
 ###weex组件
 
 参考 [hacksnew的例子](https://github.com/Hanks10100/vue-snippets)
-
-不能使用css选择器
-
-padding margin要分开left top等写
-
-元素要设置高度,否则app无法显示高度
-
-
-
-
-
-
-
-
-
 
 
 ### ios20px问题 (状态栏20px)
@@ -185,32 +150,8 @@ padding margin要分开left top等写
 - 解决方案: 参照RoomChoose ,用hotel-top-navbar包一下
 - 状态栏字的颜色????需要扩展
 
-### z-index使用不了
-- 暂时解决方案是:在上面显示的,放在下面
-- 有没有其他解决方案
-
-### 动画效果
-
-### 目前发现的问题
-- 成人和儿童选择 儿童可以选到8人
-- 20px问题
-- 全局样式没有起作用
-- 字体文件很大,不建议使用
 
 ### android 资源下载
 - 谷歌被墙,翻墙也经常下不了
 - 把下载资源地址改为 http://mirrors.neusoft.edu.cn/android/repository/repository-12.xml
 
-
-
-##待解决问题
-1. app和h5调用原生方法时兼容问题(解决方案:判断平台)
-2. 需要扩展哪些组件模块(需要看需求三端共同讨论)
-3. 数据传输 用户认证 数据安全等问题(Lewis觉得没问题)
-4. 性能问题,如POC中api调用结果返回缓慢(要安装APP后看是接口问题还是weex的问题)
-5. IOS不支持热更新(集成到APP里)
-6. 之前h5,小程序,app开发好的组件,样式,功能等怎么复用
-7. 支付如何调用
-8. 架构设计需要考虑哪些问题,如调试等
-9. 如何沿用 iconfont 字体图标
-10. 包大小问题
