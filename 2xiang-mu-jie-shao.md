@@ -1,3 +1,41 @@
+## 资料
+- 酒店设计稿 //192.168.0.200/share/diandian_design/app/Hotel
+- 酒店设计稿(改) //192.168.0.200/share/FANG _design/酒店改
+- 静态资源与接口 (见/src/constants/imgurl.js)
+
+```javascript
+
+let baseUrl = 'http://static.dev.gz.yougola.com:8080/HYBRIDAPP/' // 静态资源
+let apiGatewayHost = 'http://gateway.dev.gz.yougola.com:8000' // 接口
+
+const env = weex.config.env.appEnv
+
+switch (env) {
+    case 'dev':
+        baseUrl = 'http://static.dev.gz.yougola.com:8080/HYBRIDAPP/' // 静态资源
+        apiGatewayHost = 'http://gateway.dev.gz.yougola.com:8000' // 接口
+        break
+    case 'sit':
+        baseUrl = 'http://static.dev.gz.yougola.com:8080/HYBRIDAPP/' // 静态资源
+        apiGatewayHost = 'http://192.168.0.164:8000' // 接口
+        break
+    case 'uat':
+        baseUrl = 'http://static.dev.gz.yougola.com:8080/HYBRIDAPP/' // 静态资源
+        apiGatewayHost = 'http://172.16.10.41:8000' // 接口
+        break
+    case 'prod':
+        baseUrl = 'https://static1.igola.com/HYBRIDAPP/' // 静态资源
+        apiGatewayHost = 'https://api.igola.com:9006' // 接口
+        break
+    default:
+        baseUrl = 'http://static.dev.gz.yougola.com:8080/HYBRIDAPP/' // 静态资源
+        apiGatewayHost = 'http://gateway.dev.gz.yougola.com:8000' // 接口
+        break
+}
+
+
+``` 
+
 ##目录结构
 ```
 |--dist                                    -------------------------npm run build生成的目录文件
@@ -38,10 +76,6 @@ webpack.config.js                       ------------------------webpack配置
 webpack.dev.js                          ------------------------webpack启动服务器配置
 webpack.test.conf.js                    ------------------------webpack测试配置
 ```
-
-## 资料
-- 酒店设计稿 //192.168.0.200/share/diandian_design/app/Hotel
-- 酒店设计稿(改) //192.168.0.200/share/FANG _design/酒店改
 
 
 ##关于架构
