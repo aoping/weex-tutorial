@@ -81,6 +81,8 @@ webpack.test.conf.js                    ------------------------webpack测试配
 ##架构
 
 ###单页or多页
+- 参见webpack打包 ``` /webpack.config.js````
+
 - web采用单页架构，因为涉及到状态管理及路由。
 - native采用多页架构下
 - native环境下有页面回退(iOS右滑或Android回退键), 采用单页面的话会一次退出, 而且如果单页面随着业务的迭代, jsbundle势必越来越臃肿, 不利于加载(导致出现白屏)
@@ -91,17 +93,33 @@ webpack.test.conf.js                    ------------------------webpack测试配
 
 ###数据传递
 #### 多页面间
+storage (参见/src/services/hotel-data.js)
+query参数 (参见/src/views/HotelIndex.vue)
+```
+this.router.push({
+  page: this.routerPage.hotelResult,
+  query:{
+    city: this.formData.city.code,
+    cityName: this.formData.city.name,
+    checkInDate: this.formData.checkInDate,
+    checkOutDate:this.formData.checkOutDate,
+    keyword:encodeURI(this.formData.keyword),
+    adult:this.formData.adult,
+    children:this.formData.child,
+    roomCount:this.formData.room,
+    childrenAge:this.formData.childAge.join(',').replace(/<1/g, '0')
+  }
+})
+```
+broadcastchannel(暂未使用, 因为在使用时报错"broadcastchannel未定义")
 
-localstorage
-query参数
-broadcastchannel
 
 #### 单页面内(与Vue web开发一直, 参见Vue api)
 Vue.$emit
 
 
-###路由
-- 采用vue-router进行路由跳转，native跳转到hybrid可以在jsbundle后面接参数，如下面的query参数表示跳转到hotel页面
+###路由 (路由定义参见/src/router/, 路由模块实现跳转参见/src/utils/modules/navigator.js)
+- web采用vue-router进行路由跳转，native跳转到hybrid可以在jsbundle后面接参数，如下面的query参数表示跳转到hotel页面
 
 ```
 // android.config.js
