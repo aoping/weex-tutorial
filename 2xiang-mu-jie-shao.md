@@ -81,13 +81,23 @@ webpack.test.conf.js                    ------------------------webpack测试配
 ##架构
 
 ###单页or多页
-- 采用单页架构，因为涉及到状态管理及路由。在多页架构下，无法使用vuex进行应用状态管理（需要用到storage实现共享），另外多页面路由
-需要app扩展
+- web采用单页架构，因为涉及到状态管理及路由。
+- native采用多页架构下
+- native环境下有页面回退(iOS右滑或Android回退键), 采用单页面的话会一次退出, 而且如果单页面随着业务的迭代, jsbundle势必越来越臃肿, 不利于加载(导致出现白屏)
 
 ###状态管理 ``` /src/services/hotel-data.js```
 - 采用vuex进行应用状态管理(多页面不适用)
 - 用storage管理
 
+###数据传递
+#### 多页面间
+
+localstorage
+query参数
+broadcastchannel
+
+#### 单页面内(与Vue web开发一直, 参见Vue api)
+Vue.$emit
 
 
 ###路由
