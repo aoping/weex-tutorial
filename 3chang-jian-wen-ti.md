@@ -1,3 +1,31 @@
+## 环境
+### 区分iOS Android web (参见/src/mixins/index.js)
+
+```
+platform: weex.config.env.platform.toLowerCase()
+this.platform === 'web'
+this.platform === 'android'
+this.platform === 'ios'
+
+```
+
+### 区分dev sit uat 生产(参见/src/constants/imgurl.js)
+
+```
+weex.config.env.appEnv === 'dev'
+weex.config.env.appEnv === 'sit'
+weex.config.env.appEnv === 'uat'
+weex.config.env.appEnv === 'prod'
+
+```
+
+### 区分igola和其他(参见/src/utils/modules/navigator.js)
+
+```
+
+weex.config.env.appName.toLowerCase() == 'igola'
+```
+
 ## 样式注意点
 - 宽度 高度 margin 用百分比% 在app端都会失效
 - ios状态栏40px(750px)
@@ -30,12 +58,19 @@
   - 首页最好不要用iconfont,会有一个渲染失败的问题
 
 
+### 事件问题
+1. image load事件在Android上必须设置width height才会触发\
+2. slider 在Android iOS上没有index属性, 所以不能设置想要显示第几张图片, 需要采用稍微绕一点的方式实现, 可参考HotelDetailPics PicsPreviewer的实现
+3. weex 中Android的v-model双向绑定 输入第一个字符时无响应
+
+    用v-bind 和@change代替, 此外还要使input失去焦点, 还要再延时才会更新到数据
+
+
 
 ## 其他问题
 - 数组数据变化，dom不立即更新
   - 使用特定的数组操作方法(vue.set)相关链接
   - 使用setTimeout看是否跟生命周期有关
-
 
 
 ##  android问题
