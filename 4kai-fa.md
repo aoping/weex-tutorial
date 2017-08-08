@@ -15,3 +15,11 @@
         ![](/assets/001首页.jpg)
     * ``` npm run serve``` (支持热刷新)
     * ``` ./start``` (启动服务, 监听文件变化重新build, 启动调试)
+    
+    
+## 开发流程
+- 根据业务需求, 确定需要native开发的component和module
+- 用Vue开发前端业务
+- 在web和playground调试样式 逻辑等
+- 与native对接组件和模块
+- 在igola app联调

@@ -6,4 +6,5 @@
 * [3.常见问题](3chang-jian-wen-ti.md)
 * [4.开发](4kai-fa.md)
 * [5.调试](5diao-shi.md)
+* [6.参考资料](6can-kao-zi-liao.md)
 
