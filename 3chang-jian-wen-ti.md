@@ -48,9 +48,6 @@ padding margin要分开left top等写
 - playground扫描显示空白
 答：手机和电脑要在同一局域网内，https://github.com/alibaba/weex/issues/3002
 
-![](/assets/124734_a91b2758_1345928.png)
-
-
 
 ### ios20px问题 (状态栏20px)
 - ios 750*1334的状态栏是40px 按此比例进行换算
