@@ -78,13 +78,17 @@ webpack.test.conf.js                    ------------------------webpack测试配
 ```
 
 
-##关于架构
+##架构
+
 ###单页or多页
 - 采用单页架构，因为涉及到状态管理及路由。在多页架构下，无法使用vuex进行应用状态管理（需要用到storage实现共享），另外多页面路由
 需要app扩展
 
-###状态管理(多页面不适用)
-- 采用vuex进行应用状态管理
+###状态管理 ``` /src/services/hotel-data.js```
+- 采用vuex进行应用状态管理(多页面不适用)
+- 用storage管理
+
+
 
 ###路由
 - 采用vue-router进行路由跳转，native跳转到hybrid可以在jsbundle后面接参数，如下面的query参数表示跳转到hotel页面
