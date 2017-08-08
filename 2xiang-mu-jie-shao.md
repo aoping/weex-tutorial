@@ -159,6 +159,7 @@ hotel: {
 map.js(供vue-router用)
 const hotel = require('views/HotelIndex')    //加载模块
 { path: '/hotel', component: hotel }    //定义路由
+
 ```
 
 ###测试
