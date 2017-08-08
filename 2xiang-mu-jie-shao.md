@@ -140,6 +140,7 @@ data() {
 [国际化使用的是vue-i18n插件](http://kazupon.github.io/vue-i18n/en/)
 
 - 英文单复数问题
+
 ```
 在EN.js文件中如下定义
  Room: 'Room | Rooms'
