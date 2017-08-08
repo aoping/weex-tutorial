@@ -6,5 +6,7 @@
 * [3.常见问题](3chang-jian-wen-ti.md)
 * [4.开发](4kai-fa.md)
 * [5.调试](5diao-shi.md)
-* [6.参考资料](6can-kao-zi-liao.md)
+* [6.发布](6fa-bu.md)
+* [7.参考资料](6can-kao-zi-liao.md)
+* [分支与版本](ban-ben-kong-zhi.md)
 
