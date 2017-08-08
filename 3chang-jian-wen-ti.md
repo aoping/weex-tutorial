@@ -1,3 +1,42 @@
+## 样式注意点
+- 宽度 高度 margin 用百分比% 在app端都会失效
+- ios状态栏40px(750px)
+  - 根据设备加上40px(参见/src/components/hotel-home-top.vue)
+- 安卓机一屏问题 
+  - 可获取设备高度进行处理(weex.config.env.deviceHeight)
+- 元素高度问题 
+- gif图片仅Ios支持，android需单独添加支持库
+  - 安卓进行扩展或使用支持gif的图片库
+- div无法渲染文本需使用<text>
+2. 不支持富文本，需native单独封装module
+3. 不支持z-index
+  - 层级靠后优先
+4. class表达式需使用数组形式，否则会报错
+5. css无法简写（例:padding: 0 0 0 0 不支持，需padding-left padding-right各写属性）
+6. 不支持dom操作
+7. weex原生滑动事件不支持嵌套<list>和<scroller>标签
+8. 使用vue-router会出现跳转僵硬，如使用跳转动画需单独打包各个vue成jsbundle，用navigtor跳转，但单独打包后无法使用vuex
+9. 添加ios平台后需将podfile文件ATSDK-weex改为ATSDK否则会报错
+11. 使用v-if会有闪屏现象
+    - 推荐使用opacity显示(opacity为0时android会隐藏层级，但ios不会，需做判断)
+12. weex全局变量无法在vue模板渲染使用,可在vue实例中data添加
+13. 不支持百分比，宽度默认750px
+14. 图片必须定义高度宽度，否则无法显示
+15. 长列表分页渲染会出现内存泄漏
+- iconfont问题
+  - 支持ttf和woff字体格式
+  - 使用unicode
+  - 字体名要小写
+  - 首页最好不要用iconfont,会有一个渲染失败的问题
+
+
+
+## 其他问题
+- 数组数据变化，dom不立即更新
+  - 使用特定的数组操作方法(vue.set)相关链接
+  - 使用setTimeout看是否跟生命周期有关
+
+
 
 ##  android问题
 
@@ -38,10 +77,6 @@ import com.squareup.picasso.Picasso;
  Picasso.with(view.getContext()).load(url).into(view);//获取网络图片
 ```
 ![](/assets/124734_a91b2758_1345928.png)
-- **css相关问题**
-不能使用css选择器
-padding margin要分开left top等写
-元素要设置高度,否则app无法显示高度
 
 
 ## weex playground问题
@@ -86,6 +121,13 @@ b. weex 的内建标签，对样式有特殊要求，做相应检查
 ###weex组件
 
 参考 [hacksnew的例子](https://github.com/Hanks10100/vue-snippets)
+
+不能使用css选择器
+
+padding margin要分开left top等写
+
+元素要设置高度,否则app无法显示高度
+
 
 
 

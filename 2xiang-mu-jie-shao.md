@@ -162,6 +162,12 @@ const hotel = require('views/HotelIndex')    //加载模块
 
 ```
 
+### 数据刷新
+- weex支持viewappear生命周期
+- ios首页不能触发(其他深层页面可以), 需要ios发送一个fireEvent通知
+- igola android目前是通过pop时发送globalEvent通知
+
+
 ###组件编码规范
 -按https://blog.ygxdxx.com/2017/03/09/Vuejs-Component-Style-Guide/ 执行
 
@@ -215,5 +221,4 @@ data() {
 
 ###语法检查
 - 是用eslint进行语法风格检查
-
 
