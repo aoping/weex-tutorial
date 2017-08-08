@@ -119,7 +119,9 @@ broadcastchannel(暂未使用, 因为在使用时报错"broadcastchannel未定�
 Vue.$emit
 
 
-###路由 (路由模块实现跳转参见/src/utils/modules/navigator.js, 路由定义参见/src/router/)
+###路由 
+#### 路由模块(路由模块实现跳转参见/src/utils/modules/navigator.js)
+
 - web采用vue-router进行路由跳转
 - ios采用weex提供的navigator模块
 - android 采用自定义模块```myNavigator```跳转, 因为igola Android采用的是fragment架构, weex提供的navigator只支持activity的跳转
@@ -140,6 +142,17 @@ function popHomePage() {
 }
 ```
 
+#### 路由定义(路由定义参见/src/router/)
+```javascript
+page.js
+
+hotel: {
+    title: '酒店',    // 页面title
+    path: '/hotel',    // web路由
+    jsPath: 'views/HotelIndex'    // jsbundle路由
+}
+
+```
 
 
 ###测试
