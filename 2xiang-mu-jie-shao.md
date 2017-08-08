@@ -123,7 +123,22 @@ Vue.$emit
 - web采用vue-router进行路由跳转
 - ios采用weex提供的navigator模块
 - android 采用自定义模块```myNavigator```跳转, 因为igola Android采用的是fragment架构, weex提供的navigator只支持activity的跳转
-- 嵌套路由回到首页调用
+- 嵌套路由回到首页调用 popToHotelFrontPage方法
+
+``` javascript
+// 如果是igola就返回首页, 其他只是pop
+function popHomePage() {
+    if (weex.config.env.appName.toLowerCase() == 'igola') {
+        myNavigator.popToHotelFrontPage()
+    } else {
+        navigator.pop({
+            animated: 'true'
+        }, event => {
+            console.log('callback: ', event)
+        })
+    }
+}
+```
 
 
 
