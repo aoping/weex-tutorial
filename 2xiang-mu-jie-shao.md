@@ -118,38 +118,13 @@ broadcastchannel(暂未使用, 因为在使用时报错"broadcastchannel未定�
 Vue.$emit
 
 
-###路由 (路由定义参见/src/router/, 路由模块实现跳转参见/src/utils/modules/navigator.js)
-- web采用vue-router进行路由跳转，native跳转到hybrid可以在jsbundle后面接参数，如下面的query参数表示跳转到hotel页面
+###路由 (路由模块实现跳转参见/src/utils/modules/navigator.js, 路由定义参见/src/router/)
+- web采用vue-router进行路由跳转
+- ios采用weex提供的navigator模块
+- android 采用自定义模块```myNavigator```跳转, 因为igola Android采用的是fragment架构, weex提供的navigator只支持activity的跳转
+- 嵌套路由回到首页调用
 
-```
-// android.config.js
-{
-    "AppName": "WeexApp",
-    "AppId": "com.alibaba.weex",
-    "SplashText": "Hello\nWeex",
-    "WeexBundle": "http://192.168.15.194:8081/dist/index.weex.js?query=hotel"
-}
-```
-路由跳转实现如下：
-```javascript
-// entry.js
-let instance = new Vue(Vue.util.extend({ el: '#root', router, store }, App))
 
-let query = instance.getQuery('query')
-    // console.log(query)
-    // 这里实现路由跳转
-switch (query) {
-    case 'top':
-        router.push('/top')
-        break
-    case 'hotel':
-        router.push('/hotel')
-        break
-    default:
-        router.push('/')
-        break
-}
-```
 
 ###测试
 - 单元测试采用krama+mocha+chai
