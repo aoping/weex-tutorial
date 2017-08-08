@@ -144,7 +144,7 @@ function popHomePage() {
 
 #### 路由定义(路由定义参见/src/router/)
 ```javascript
-page.js
+page.js(供navigator用)
 
 hotel: {
     title: '酒店',    // 页面title
@@ -153,7 +153,11 @@ hotel: {
 }
 
 ```
+```javascript
+map.js(供vue-router用)
 
+
+```
 
 ###测试
 - 单元测试采用krama+mocha+chai
